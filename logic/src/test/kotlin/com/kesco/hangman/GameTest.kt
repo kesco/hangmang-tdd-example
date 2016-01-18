@@ -34,7 +34,18 @@ class GameTest() {
         game!!.new()
         assertFalse(game!!.input('b'))
         assertEquals(5, game!!.length())
-        assertEquals(11, game!!.tries())
+        assertEquals(10, game!!.tries())
         assertEquals("b", game!!.used())
+    }
+
+    @Test
+    fun testInput() {
+        game!!.new()
+        assertFalse(game!!.input('a'))
+        assertEquals(11, game!!.tries())
+        assertEquals("a", game!!.used())
+        assertTrue(game!!.input('k'))
+        assertEquals(10, game!!.tries())
+        assertEquals("ak", game!!.used())
     }
 }

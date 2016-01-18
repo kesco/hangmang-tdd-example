@@ -1,11 +1,14 @@
 package com.kesco.hangman
 
+import kotlin.text.contains
+
 /**
  * [HangMan](http://www.twoplayergames.org/play/668-Hangman.html) Logic
  */
 class Game() {
     var _answer: String = ""
     var _used: String = ""
+    var _tries:Int = 12
 
     fun new() {
         _answer = "kesco"
@@ -14,7 +17,8 @@ class Game() {
 
     fun input(c: Char): Boolean {
         _used += c
-        return false
+        _tries -= 1
+        return _answer.contains(c)
     }
 
     fun length(): Int {
@@ -22,7 +26,7 @@ class Game() {
     }
 
     fun tries(): Int {
-        return 11
+        return _tries
     }
 
     fun used(): String = _used
