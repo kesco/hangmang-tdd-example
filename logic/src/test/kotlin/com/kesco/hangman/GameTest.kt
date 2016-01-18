@@ -22,6 +22,7 @@ class GameTest() {
         assertEquals(11, game!!.tries())
         assertEquals("a", game!!.used())
         assertEquals("kesco", game!!.answer())
+        assertEquals("_____", game!!.display())
     }
 
     @Test
@@ -47,5 +48,22 @@ class GameTest() {
         assertTrue(game!!.input('k'))
         assertEquals(10, game!!.tries())
         assertEquals("ak", game!!.used())
+        assertEquals("k____", game!!.display())
+    }
+
+    @Test
+    fun testPass() {
+        val actulAnswer = charArrayOf('k', 'e', 's', 'c', 'o')
+        for (ch in actulAnswer) {
+            assertTrue(game!!.input(ch))
+        }
+        assertTrue(game!!.pass())
+
+        val wrongAnswer = charArrayOf('a', 's', 'd', 'f', 'g', 'h', 'j', 'k'
+                , 'l', 'q', 'w', 'k', 'e', 's', 'c', 'o')
+        for (ch in wrongAnswer) {
+            game!!.input(ch)
+        }
+        assertFalse(game!!.pass())
     }
 }

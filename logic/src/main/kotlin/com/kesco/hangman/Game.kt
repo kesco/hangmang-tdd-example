@@ -7,6 +7,7 @@ import kotlin.text.contains
  */
 class Game() {
     var _answer: String = ""
+    var _display: String = ""
     var _used: String = ""
     var _tries:Int = 12
 
@@ -25,13 +26,17 @@ class Game() {
         return 5
     }
 
-    fun tries(): Int {
-        return _tries
-    }
+    fun tries(): Int = _tries
 
     fun used(): String = _used
 
     fun answer(): String {
         return "kesco"
+    }
+
+    fun pass(): Boolean {
+    }
+
+    fun display(): String {
     }
 }
