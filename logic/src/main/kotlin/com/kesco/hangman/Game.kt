@@ -5,14 +5,11 @@ import kotlin.text.*
 /**
  * [HangMan](http://www.twoplayergames.org/play/668-Hangman.html) Logic
  */
-class Game() {
-    var _answer: String = ""
+class Game(val _answer: String, var _tries: Int) {
     var _display: String = ""
     var _used: String = ""
-    var _tries: Int = 12
 
     fun new() {
-        _answer = "kesco"
         _used = ""
         _display = ""
         for (ch in _answer.toCharArray()) {
@@ -44,12 +41,10 @@ class Game() {
 
     fun used(): String = _used
 
-    fun answer(): String {
-        return "kesco"
-    }
+    fun answer(): String = _answer
 
     fun pass(): Boolean {
-        if(_tries < 1) return false
+        if (_tries < 1) return false
         return _display.equals(_answer)
     }
 

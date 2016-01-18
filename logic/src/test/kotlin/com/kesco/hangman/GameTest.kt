@@ -11,7 +11,7 @@ class GameTest() {
 
     @Before
     fun setUp() {
-        game = Game()
+        game = Game("kesco", 12)
     }
 
     @Test
@@ -67,5 +67,13 @@ class GameTest() {
             game!!.input(ch)
         }
         assertFalse(game!!.pass())
+    }
+
+    @Test
+    fun testDifferentGame() {
+        val other = Game("other", 5)
+        other.new()
+        assertEquals("other", other.answer())
+        assertEquals(5, other.tries())
     }
 }
