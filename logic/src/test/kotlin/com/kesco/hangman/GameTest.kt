@@ -53,12 +53,14 @@ class GameTest() {
 
     @Test
     fun testPass() {
+        game!!.new()
         val actulAnswer = charArrayOf('k', 'e', 's', 'c', 'o')
         for (ch in actulAnswer) {
             assertTrue(game!!.input(ch))
         }
         assertTrue(game!!.pass())
 
+        game!!.new()
         val wrongAnswer = charArrayOf('a', 's', 'd', 'f', 'g', 'h', 'j', 'k'
                 , 'l', 'q', 'w', 'k', 'e', 's', 'c', 'o')
         for (ch in wrongAnswer) {
